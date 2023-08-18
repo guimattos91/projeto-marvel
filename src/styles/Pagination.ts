@@ -14,21 +14,22 @@ export const Pagination = styled(ReactPaginate)`
       display: inline-block;
       border: none;
       padding: 10px 20px;
-      border-radius: 3px;
       margin: 5px 5px;
       color: #ffffff;
       text-decoration: none;
       background-color: #fa2d01;
+      font-weight: 700;
+
+      &:hover {
+        background-color: #ae1f01;
+        color: white;
+      }
     }
 
     &.selected a {
       background-color: #151515;
       color: #ffffff;
       border: none;
-
-      &:hover {
-        color: #fa2d01;
-      }
     }
   }
 `

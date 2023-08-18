@@ -1,7 +1,8 @@
-import { Ratio } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+export const SearchDivPosition = styled.div`
+  margin-bottom: 3rem;
+`
 export const InputStyle = styled.input`
   border: none;
   border-bottom: 2px solid red;
@@ -17,10 +18,10 @@ export const InputStyle = styled.input`
 export const ButtonStyle = styled.button`
   background-color: #fa2d01;
   border: none;
+  border-color: #fa2d01;
   color: white;
   flex: flex;
-  padding: 2px 15px;
-  clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+  padding: 3px 15px;
 `
 
 export const PStyled = styled.p`

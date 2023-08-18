@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useCallback, useEffect, useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
@@ -6,15 +6,30 @@ import { getImageUrl, strToSlug } from 'helpers'
 
 import { ComicsType } from 'types/ComicsType'
 
-import { PLink, CardBody, RatioDiv } from './styles'
+import { PLink, CardBody, RatioDiv, ComicsCardDiv } from './styles'
 
 interface IComicsTypeProps {
   comic: ComicsType
 }
 
 const ComicsCard: React.FC<IComicsTypeProps> = ({ comic }) => {
+  const [thumbailPosition, setThumbailPosition] = useState('center center')
+
+  const thumbnailHandler = useCallback(() => {
+    if (
+      comic.thumbnail.path ===
+      'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available'
+    ) {
+      setThumbailPosition('left center')
+    }
+  }, [comic.thumbnail.path])
+
+  useEffect(() => {
+    thumbnailHandler()
+  })
+
   return (
-    <div style={{ width: '100% ' }} className="p-4">
+    <ComicsCardDiv>
       <Link to={`/comic/${comic.id}/${strToSlug(comic.title)}`}>
         <RatioDiv
           className="ratio"
@@ -22,7 +37,7 @@ const ComicsCard: React.FC<IComicsTypeProps> = ({ comic }) => {
             backgroundImage: `url(${getImageUrl(comic.thumbnail)})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center center',
+            backgroundPosition: `${thumbailPosition}`,
           }}
         />
       </Link>
@@ -31,7 +46,7 @@ const ComicsCard: React.FC<IComicsTypeProps> = ({ comic }) => {
           {comic.title}
         </PLink>
       </CardBody>
-    </div>
+    </ComicsCardDiv>
   )
 }
 

@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react'
 
-import { ButtonStyle, InputStyle } from './styles'
+import { ButtonStyle, InputStyle, SearchDivPosition } from './styles'
 
 interface ISearchProps {
   fetchCategory: (page: number, search?: string | undefined) => Promise<void>
@@ -22,26 +22,25 @@ const SearchComponent: React.FC<ISearchProps> = ({ fetchCategory }) => {
   }, [fetchCategory, setHasSearch])
 
   return (
-    <>
+    <SearchDivPosition>
       <InputStyle
         type="text"
         placeholder="Buscar"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <div className="my-4 my-md-2">
-        {search.length > 0 && (
-          <ButtonStyle type="button" onClick={handleSearch}>
-            <p className="m-0 px-2">Buscar</p>
-          </ButtonStyle>
-        )}
-        {hasSearch === true && (
-          <ButtonStyle type="button" onClick={clearSearch}>
-            <p className="m-0 px-2">Limpar</p>
-          </ButtonStyle>
-        )}
-      </div>
-    </>
+
+      {search.length > 0 && (
+        <ButtonStyle type="button" onClick={handleSearch}>
+          Buscar
+        </ButtonStyle>
+      )}
+      {hasSearch === true && (
+        <ButtonStyle type="button" onClick={clearSearch} className="ms-2">
+          Voltar
+        </ButtonStyle>
+      )}
+    </SearchDivPosition>
   )
 }
 

@@ -12,9 +12,9 @@ import { getImageUrl } from 'helpers'
 
 import useTitle from 'hooks/useTitle'
 
-import { BreadccrumbStyled } from 'styles/Main'
+import { BreadcrumberStyled } from 'styles/styles'
 
-import { BlurDiv, H1White, MainBlack, PStyled, PStyleLarger } from './styles'
+import { BlurDiv, H1White, PStyled, PStyleLarger } from './styles'
 
 const Comic: React.FC = () => {
   const { comic, isLoading, fetchComic } = useComics()
@@ -30,7 +30,7 @@ const Comic: React.FC = () => {
   return (
     <>
       <Header />
-      <MainBlack>
+      <main>
         {isLoading && (
           <div className="text-center d-flex justify-content-center">
             <Spinner
@@ -62,13 +62,13 @@ const Comic: React.FC = () => {
                   </Col>
                   <Col xs={12} lg={6}>
                     <div className="h-auto">
-                      <BreadccrumbStyled className="pt-3">
+                      <BreadcrumberStyled>
                         <Link to="/">Home</Link>
-                        <p className="text-white px-2">/</p>
+                        <p className="text-white px-2">|</p>
                         <Link to="/comics">Comics</Link>
-                        <p className="text-white px-2">/</p>
+                        <p className="text-white px-2">|</p>
                         <Breadcrumb.Item active>{comic.title}</Breadcrumb.Item>
-                      </BreadccrumbStyled>
+                      </BreadcrumberStyled>
                       {comic.title && <H1White>{comic.title}</H1White>}
                       {!comic.title && (
                         <H1White>
@@ -92,7 +92,7 @@ const Comic: React.FC = () => {
             </BlurDiv>
           </div>
         )}
-      </MainBlack>
+      </main>
       <Footer />
     </>
   )

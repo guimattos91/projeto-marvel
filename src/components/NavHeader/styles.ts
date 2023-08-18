@@ -6,3 +6,11 @@ export const GrayLines = styled.div`
   border-color: #9e9e9e;
   border-width: thin;
 `
+export const CategoryTitle = styled.h2`
+  margin: 0;
+  padding: 0;
+
+  :hover {
+    color: #fa2d01;
+  }
+`

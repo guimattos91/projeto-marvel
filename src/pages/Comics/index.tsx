@@ -14,8 +14,8 @@ import SearchComponent from 'components/SearchComponent'
 
 import useTitle from 'hooks/useTitle'
 
-import { BreadccrumbStyled, MainStyle } from 'styles/Main'
 import { Pagination } from 'styles/Pagination'
+import { BreadcrumberStyled } from 'styles/styles'
 
 import { ButtonBack, ColCards, StyledLink, TitleH1 } from './styles'
 
@@ -38,23 +38,24 @@ const Comics: React.FC = () => {
   return (
     <>
       <Header />
-      <MainStyle>
+      <main>
         <Container>
-          <BreadccrumbStyled className="pt-3">
-            <Link to="/">Home</Link> <p className="text-white px-2">/</p>
+          <BreadcrumberStyled className="pt-2">
+            <Link to="/">Home</Link>
+            <p className="text-white px-2">|</p>
             <Breadcrumb.Item active>Comics</Breadcrumb.Item>
-          </BreadccrumbStyled>
-          <Row className="pt-4">
+          </BreadcrumberStyled>
+          <Row>
+            <Col>
+              <TitleH1>Comics</TitleH1>
+            </Col>
+          </Row>
+          <Row>
             <Col className="d-flex justify-content-center">
               <SearchComponent fetchCategory={fetchComics} />
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <TitleH1 className="p-3">Comics</TitleH1>
-            </Col>
-          </Row>
-          <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 justify-content-center">
+          <Row className="g-3 justify-content-center">
             {isLoading && (
               <div className="text-center py-2">
                 <Spinner animation="border" variant="danger" />
@@ -65,6 +66,10 @@ const Comics: React.FC = () => {
               comics.map((comic) => (
                 <ColCards
                   className="d-flex justify-content-center"
+                  xs={6}
+                  sm={4}
+                  md={3}
+                  lg={2}
                   key={comic.id}
                 >
                   <ComicsCard comic={comic} />
@@ -87,7 +92,7 @@ const Comics: React.FC = () => {
               </>
             )}
           </Row>
-          <Row>
+          <Row className="mt-4">
             <Col>
               {totalPages > 1 && (
                 <Pagination
@@ -108,7 +113,7 @@ const Comics: React.FC = () => {
             </Col>
           </Row>
         </Container>
-      </MainStyle>
+      </main>
       <Footer />
     </>
   )

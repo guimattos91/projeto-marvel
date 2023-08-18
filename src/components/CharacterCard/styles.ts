@@ -1,101 +1,74 @@
-import { Ratio } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
+interface ITitleProps {
+  isHidden: boolean
+}
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 export const PLink = styled(Link)`
-  color: inherit;
+  color: white;
   text-decoration: none;
 
-  p {
+  :hover {
     text-decoration: none;
-    padding: 5px;
-    font-family: 'Bebas Neue', cursive;
-    font-size: large;
-
-    &:hover {
-      color: #fff;
-    }
+    color: white;
   }
 `
-export const DivRatio = styled(Ratio)`
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 20%,
-    100% 80%,
-    80% 100%,
-    20% 100%,
-    0 100%,
-    0% 20%
-  );
-`
 
+export const HiddenParagraph = styled.p`
+  opacity: 0;
+  transform: translateY(20px);
+  bottom: 0;
+  left: 0;
+  animation: ${fadeIn} 0.3s ease-in-out forwards;
+  animation-delay: 0.2s;
+`
 export const CardBody = styled.div`
-  background-color: #fff;
-  border-style: solid none none none;
+  border-style: none none solid none;
   border-color: #fa2d01;
-  border-width: large;
-  flex: flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 20%,
-    100% 60%,
-    80% 100%,
-    20% 100%,
-    0 100%,
-    0% 20%
+  justify-content: end;
+
+  background: linear-gradient(
+    0deg,
+    rgba(36, 0, 0, 1) 0%,
+    rgba(0, 212, 255, 0) 40%
   );
 
-  &:hover {
-    background-color: #fa2d01;
-    color: #fff;
-    transition: transform 1s linear;
-  }
+  text-align: center;
+  color: white;
 `
-export const Cardlov = styled.div`
-  background-color: #fff;
-  border-style: solid none none none;
-  border-color: #fa2d01;
-  border-width: large;
-  flex: flex;
-  align-items: center;
-  padding-bottom: 20px;
+export const RatioDiv = styled.div`
+  position: relative;
+  width: 100%;
 
-  ::after {
+  ::before {
+    display: block;
+    padding-top: 130%;
     content: '';
-    width: 4px;
-    height: 4px;
-    border-style: solid;
-    border-width: 0 0 20px 20px;
-    border-color: transparent transparent #060606 transparent;
-    z-index: 40;
-    float: right;
-    clear: both;
-  }
-
-  &:hover {
-    background-color: #fa2d01;
-    color: #fff;
-    transition: transform 1s linear;
   }
 `
-
-export const Triangle = styled.div`
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 20px 20px;
-  border-color: transparent transparent #151515 transparent;
-`
-
-export const PStyled = styled.p`
-  text-decoration: none;
-  padding: 25px 50px 75px;
-  font-family: 'Roboto', sans-serif;
-  font-size: large;
-  padding-bottom: 50px;
-  background-color: #fff;
+export const CharacterNameTitle = styled.p<ITitleProps>`
+  font-weight: 700;
+  text-align: center;
+  color: White;
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+  opacity: 1;
+  transform: translateY(0);
+  position: absolute;
+  bottom: ${(props) => (props.isHidden ? '40px' : '10px')};
+  transition: bottom 0.3s ease-in-out;
 `

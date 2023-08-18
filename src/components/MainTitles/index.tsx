@@ -4,12 +4,15 @@ import { memo } from 'react'
 
 import { TitleH2 } from './styles'
 
-const Maintitle: React.FC = () => {
+interface IMaintitleProps {
+  title: string
+}
+
+const Maintitle: React.FC<IMaintitleProps> = ({ title }) => {
   // const character = useState<CharacterType | null>(null);
   return (
     <div className="pt-4 d-flex flex-column align-items-center">
-      <TitleH2 className="pt-4">name</TitleH2>
-      <div className="pt-3" />
+      <TitleH2>{title}</TitleH2>
     </div>
   )
 }

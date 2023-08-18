@@ -9,8 +9,6 @@ import Header from 'components/Header'
 
 import useTitle from 'hooks/useTitle'
 
-import { MainStyle } from 'styles/Main'
-
 import { TitleH1 } from './styles'
 
 const NotFound: React.FC = () => {
@@ -24,14 +22,14 @@ const NotFound: React.FC = () => {
   return (
     <>
       <Header />
-      <MainStyle className="d-flex flex-column align-items-center justify-content-center">
+      <main className="d-flex flex-column align-items-center justify-content-center">
         <img
           src={Hulk}
           alt="Página Não Encontrada"
           style={{ width: `30%`, height: `auto` }}
         />
         <TitleH1> 404 - Hulk Esmagou essa página</TitleH1>
-      </MainStyle>
+      </main>
       <Footer />
     </>
   )

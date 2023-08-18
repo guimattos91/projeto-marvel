@@ -1,4 +1,3 @@
-import { Col } from 'react-bootstrap'
 import styled from 'styled-components'
 
 export const TitleH2 = styled.h2`
@@ -20,4 +19,6 @@ export const TitleH1 = styled.h1`
   font-family: 'Bebas Neue', cursive;
   color: white;
   text-align: center;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
 `

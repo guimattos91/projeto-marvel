@@ -8,12 +8,14 @@ import { Link } from 'react-router-dom'
 import Logo from 'assets/marvel-logo.png'
 
 import {
-  BlackSignatureDiv,
   Buttonmail,
+  CategoryDiv,
   ColCards,
   EmailDiv,
   InputEmail,
+  SignatureDiv,
   StyleFooter,
+  StyledIcons,
 } from './styles'
 
 const Footer: React.FC = () => {
@@ -30,37 +32,40 @@ const Footer: React.FC = () => {
           </ColCards>
           <ColCards className="py-3 py-md-0">
             <nav>
-              <div className="text-center">
+              <CategoryDiv>
                 <Link
                   to="/characters"
                   className="text-decoration-none text-reset"
                 >
                   Characters
                 </Link>
-              </div>
-              <div className="text-center">
-                <Link
-                  to="/comics"
-                  className="text-decoration-none text-reset text-center"
-                >
+              </CategoryDiv>
+              <CategoryDiv>
+                <Link to="/comics" className="text-decoration-none text-reset">
                   Comics
                 </Link>
-              </div>
+              </CategoryDiv>
             </nav>
           </ColCards>
           <ColCards className="py-3 py-md-0">
             <nav>
               <h5 className="text-center">Follow Us:</h5>
               <div className="text-center">
-                <a href="https://www.instagram.com/marvel/" className="px-2">
-                  <BsInstagram color="white" />
-                </a>
-                <a href="https://www.facebook.com/Marvel/" className="px-2">
-                  <BsFacebook color="white" />
-                </a>
-                <a href="https://twitter.com/marvel" className="px-2">
-                  <BsTwitter color="white" />
-                </a>
+                <StyledIcons
+                  href="https://www.instagram.com/marvel/"
+                  className="px-2"
+                >
+                  <BsInstagram />
+                </StyledIcons>
+                <StyledIcons
+                  href="https://www.facebook.com/Marvel/"
+                  className="px-2"
+                >
+                  <BsFacebook />
+                </StyledIcons>
+                <StyledIcons href="https://twitter.com/marvel" className="px-2">
+                  <BsTwitter />
+                </StyledIcons>
               </div>
             </nav>
           </ColCards>
@@ -82,7 +87,7 @@ const Footer: React.FC = () => {
           </ColCards>
         </Row>
       </Container>
-      <BlackSignatureDiv className="d-flex py-2">
+      <SignatureDiv className="d-flex py-2">
         <p className="me-2">Site by:</p>
         <a
           href="https://www.linkedin.com/in/guimattos91/"
@@ -91,7 +96,7 @@ const Footer: React.FC = () => {
         >
           Guilherme Mattos
         </a>
-      </BlackSignatureDiv>
+      </SignatureDiv>
     </StyleFooter>
   )
 }

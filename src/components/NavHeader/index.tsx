@@ -2,7 +2,7 @@ import { memo } from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { GrayLines } from './styles'
+import { CategoryTitle, GrayLines } from './styles'
 
 const NavHeader: React.FC = () => {
   return (
@@ -14,13 +14,19 @@ const NavHeader: React.FC = () => {
           color: 'white',
         }}
       >
-        <Link to="/characters" className="text-decoration-none px-3 text-reset">
-          Characters
-        </Link>
-
-        <Link to="/comics" className=" text-decoration-none px-3 text-reset">
-          Comics
-        </Link>
+        <CategoryTitle>
+          <Link
+            to="/characters"
+            className=" text-decoration-none px-3 text-reset"
+          >
+            Characters
+          </Link>
+        </CategoryTitle>
+        <CategoryTitle>
+          <Link to="/comics" className=" text-decoration-none px-3 text-reset">
+            Comics
+          </Link>
+        </CategoryTitle>
       </nav>
     </GrayLines>
   )

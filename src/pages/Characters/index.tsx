@@ -3,8 +3,6 @@ import { memo, useCallback, useEffect } from 'react'
 // eslint-disable-next-line import-helpers/order-imports
 import { Breadcrumb, Col, Container, Row, Spinner } from 'react-bootstrap'
 
-// import { BsSearch } from 'react-icons/bs'
-
 import { Link } from 'react-router-dom'
 
 import Jarvis from 'assets/jarvis2.png'
@@ -18,8 +16,8 @@ import SearchComponent from 'components/SearchComponent'
 
 import useTitle from 'hooks/useTitle'
 
-import { BreadccrumbStyled, MainStyle } from 'styles/Main'
 import { Pagination } from 'styles/Pagination'
+import { BreadcrumberStyled } from 'styles/styles'
 
 import {
   ComicCharacterType,
@@ -56,24 +54,24 @@ const CharactersPage: React.FC = () => {
   return (
     <>
       <Header />
-      <MainStyle>
+      <main>
         <Container>
-          <BreadccrumbStyled className="pt-3">
+          <BreadcrumberStyled className="pt-3">
             <Link to="/">Home</Link>
-            <p className="text-white px-2">/</p>
+            <p className="text-white px-2">|</p>
             <Breadcrumb.Item active>Characters</Breadcrumb.Item>
-          </BreadccrumbStyled>
-          <Row className="pt-4">
+          </BreadcrumberStyled>
+          <Row>
+            <Col>
+              <TitleH1>Characters</TitleH1>
+            </Col>
+          </Row>
+          <Row>
             <Col className="d-flex justify-content-center flex-wrap">
               <SearchComponent fetchCategory={fetchCharacters} />
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <TitleH1 className="p-3 pt-5">Characters</TitleH1>
-            </Col>
-          </Row>
-          <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 justify-content-center">
+          <Row className="g-4 justify-content-center">
             {isLoading && (
               <div className="text-center">
                 <Spinner animation="border" variant="danger" />
@@ -90,7 +88,14 @@ const CharactersPage: React.FC = () => {
                   events: EventType
                   comics: ComicCharacterType
                 }) => (
-                  <ColCards key={character.id} className="d-flex">
+                  <ColCards
+                    key={character.id}
+                    className="d-flex"
+                    xs={12}
+                    sm={6}
+                    md={4}
+                    lg={3}
+                  >
                     <CharacterCard character={character} />
                   </ColCards>
                 ),
@@ -112,7 +117,7 @@ const CharactersPage: React.FC = () => {
               </>
             )}
           </Row>
-          <Row>
+          <Row className="mt-4">
             <Col>
               {totalPages > 1 && (
                 <Pagination
@@ -133,7 +138,7 @@ const CharactersPage: React.FC = () => {
             </Col>
           </Row>
         </Container>
-      </MainStyle>
+      </main>
       <Footer />
     </>
   )

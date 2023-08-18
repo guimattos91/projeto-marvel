@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react'
+import { memo, useEffect } from 'react'
 
 import { Col, Container, Row, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -7,45 +7,35 @@ import BannerImage from 'assets/Banner.jpeg'
 import CharactersBanner from 'assets/characters.png'
 import ComicBanner from 'assets/comics.png'
 
-import CharacterCard from 'components/CharacterCard'
+// import { useCharacters } from 'context/CharactersContext'
+import { useComics } from 'context/ComicsContext'
+
+// import CharacterCard from 'components/CharacterCard'
+import ComicsCard from 'components/ComicsCard'
 import Footer from 'components/Footer'
 import Header from 'components/Header'
-
-import Api from 'services/Api'
-
-import { MainStyle } from 'styles/Main'
-
-import { CharacterType } from 'types/CharacterType'
-// useState(Array(count).fill(null))
+import MainTitles from 'components/MainTitles'
 
 const Home: React.FC = () => {
-  const [characters, setCharacters] = useState<CharacterType[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  const fetchCharacters = useCallback(async () => {
-    try {
-      const {
-        data: {
-          data: { results },
-        },
-      } = await Api.get('/characters')
-      setCharacters(results)
-    } catch {
-      ;<p>x</p>
-    } finally {
-      setIsLoading(false)
-    }
-  }, [])
+  // const { characters, isLoading, fetchCharacters } = useCharacters()
+  const { comics, isLoading, fetchComics } = useComics()
 
   useEffect(() => {
-    fetchCharacters()
+    fetchComics(1, 'x-men')
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  const selectedComicIds = [107704, 110311, 1332, 17486]
+
+  const filteredComics = comics.filter((item) =>
+    selectedComicIds.includes(item.id),
+  )
 
   return (
     <>
       <Header />
-      <MainStyle>
+      <main>
         <img
           src={BannerImage}
           alt="BannerImage"
@@ -71,21 +61,22 @@ const Home: React.FC = () => {
               </Link>
             </Col>
           </Row>
-          <Row className="row-cols-1 row-cols-md-3 row-cols-lg-4 g-3">
+          <Row className="g-3">
+            <MainTitles title="Best Sellers" />
             {isLoading && (
               <div className="text-center">
                 <Spinner animation="border" variant="success" />
               </div>
             )}
             {!isLoading &&
-              characters.map((character) => (
-                <Col key={character.id} className="d-flex">
-                  <CharacterCard character={character} />
+              filteredComics.map((comic) => (
+                <Col xs={6} md={3} key={comic.id} className="d-flex">
+                  <ComicsCard comic={comic} />
                 </Col>
               ))}
           </Row>
         </Container>
-      </MainStyle>
+      </main>
       <Footer />
     </>
   )

@@ -7,10 +7,6 @@ export const BlurDiv = styled.div`
   background-color: rgba(6, 6, 6, 0.7);
 `
 
-export const MainBlack = styled.main`
-  background-color: #060606;
-`
-
 export const H1White = styled.h1`
   color: #fff;
   font-family: 'Bebas Neue', cursive;

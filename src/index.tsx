@@ -8,6 +8,8 @@ import 'services/i18n'
 import { CharactersProvider } from 'context/CharactersContext'
 import { ComicsProvider } from 'context/ComicsContext'
 
+import { GlobalStyle } from 'styles/styles'
+
 import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -16,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <CharactersProvider>
         <ComicsProvider>
           <App />
+          <GlobalStyle />
         </ComicsProvider>
       </CharactersProvider>
     </Suspense>

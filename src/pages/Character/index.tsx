@@ -12,7 +12,7 @@ import { getImageUrl } from 'helpers'
 
 import useTitle from 'hooks/useTitle'
 
-import { BreadccrumbStyled, MainStyle } from 'styles/Main'
+import { BreadcrumberStyled } from 'styles/styles'
 
 import {
   BlurDiv,
@@ -37,7 +37,7 @@ const Character: React.FC = () => {
   return (
     <>
       <Header />
-      <MainStyle>
+      <main>
         {isLoading && (
           <div className="text-center">
             <Spinner animation="border" variant="danger" />
@@ -74,13 +74,13 @@ const Character: React.FC = () => {
                   </DivRatio>
                 </Col>
                 <Col className="pt-4">
-                  <BreadccrumbStyled>
+                  <BreadcrumberStyled>
                     <Link to="/">Home</Link>
-                    <p className="text-white px-2">/</p>
+                    <p className="text-white px-2">|</p>
                     <Link to="/characters">Characters</Link>
-                    <p className="text-white px-2">/</p>
+                    <p className="text-white px-2">|</p>
                     <Breadcrumb.Item active>{character.name}</Breadcrumb.Item>
-                  </BreadccrumbStyled>
+                  </BreadcrumberStyled>
                   {character?.name && (
                     <H1White className="d-flex align-self-center">
                       {character.name}
@@ -88,7 +88,7 @@ const Character: React.FC = () => {
                   )}
                   {!character?.name && (
                     <H1White className="d-flex align-self-center">
-                      Nome não encontrado
+                      Name not found
                     </H1White>
                   )}
                   {character.description && (
@@ -96,7 +96,7 @@ const Character: React.FC = () => {
                   )}
                   {!character.description && (
                     <PWhite className="ms-3">
-                      Esse Personagem ainda não possui descrição
+                      This character does not yet have a description.
                     </PWhite>
                   )}
                   {character.events.items.length >= 1 && (
@@ -177,7 +177,7 @@ const Character: React.FC = () => {
             </Container>
           </>
         )}
-      </MainStyle>
+      </main>
       <Footer />
     </>
   )

@@ -32,6 +32,18 @@ export const Buttonmail = styled.button`
 
 export const InputEmail = styled.input`
   border-style: none;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  padding-left: 1rem;
+
+  :focus,
+  input:focus,
+  select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+  }
 `
 
 export const StyleFooter = styled.footer`
@@ -57,7 +69,7 @@ export const ColCards = styled(Col)`
   flex: flex;
   justify-content: center;
 `
-export const BlackSignatureDiv = styled.div`
+export const SignatureDiv = styled.div`
   background-color: black;
   flex: flex;
   align-items: flex-end;
@@ -68,5 +80,26 @@ export const BlackSignatureDiv = styled.div`
   p {
     margin: 0px;
     text-align: center;
+  }
+  a {
+    text-decoration: none;
+    color: #fa2d01;
+    :hover {
+      text-decoration: underline;
+    }
+  }
+`
+export const CategoryDiv = styled.div`
+  color: white;
+  text-align: center;
+  :hover {
+    color: #fa2d01;
+  }
+`
+export const StyledIcons = styled.a`
+  color: white;
+  text-align: center;
+  :hover {
+    color: #fa2d01;
   }
 `
