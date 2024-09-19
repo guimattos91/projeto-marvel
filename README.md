@@ -1,16 +1,54 @@
-# Vite + React + Typescript + Vitest + Eslint + Prettier + EditorConfig
+# Marvel Website
 
-A starter for React with Typescript with the blazing fast Vite, strong Vitest framework and all static code testing with Eslint and formatting with Prettier and EditorConfig.
+Marvel's Project é um site que fornece uma listagem completa de personagens e quadrinhos do universo Marvel. Ele permite que os fãs da Marvel busquem e explorem informações detalhadas sobre seus personagens e quadrinhos favoritos, tornando-se uma ferramenta útil tanto para fãs casuais quanto para colecionadores.
 
-## Installation & run
 
-1. Install [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) extensions for VS Code. **Do not install the Prettier extension**
+# Veja o Projeto Rodando:
+[Marvel's Project](https://marvel.guimattos.dev/)
 
-2. Add these configs to VS Code settings:
 
-```
+## Objetivo do Projeto
+
+O principal objetivo deste projeto é fornecer uma plataforma onde os usuários possam encontrar informações sobre personagens e quadrinhos da Marvel. Ele serve como um guia abrangente para os fãs da Marvel, facilitando a busca e a descoberta de detalhes sobre o vasto universo Marvel.
+
+## Funcionalidades
+
+- **Listagem de Personagens:** Veja uma lista detalhada dos personagens da Marvel.
+- **Busca de Personagens:** Pesquise por personagens específicos pelo nome.
+- **Listagem de Quadrinhos:** Explore uma coleção completa de quadrinhos da Marvel.
+- **Busca de Quadrinhos:** Encontre quadrinhos específicos usando a barra de pesquisa.
+
+## Pré-requisitos
+
+Para executar este projeto, você precisará ter os seguintes itens configurados:
+
+## API da Marvel:
+### Passo a Passo para Acessar a API da Marvel:
+- Crie uma Conta na Marvel Developer
+- Acesse o site da Marvel Developer: [Marvel Developer](https://developer.marvel.com/)
+- Clique em "Sign Up" no canto superior direito.
+- Preencha o formulário de registro com suas informações e crie uma conta.
+
+### Obtenha suas Chaves de API:
+Após se registrar e fazer login, acesse a seção "My Developer Account" na barra de navegação superior.
+Lá, você verá as suas chaves de API: uma Public Key (Chave Pública) e uma Private Key (Chave Privada).
+Anote essas chaves, pois você precisará delas para fazer solicitações à API.
+Leia a Documentação da API:
+
+### Acesse a documentação da API da Marvel.
+Leia sobre os diferentes endpoints disponíveis, como /characters, /comics, /events, etc. A documentação também fornecerá detalhes sobre como construir URLs de solicitação e quais parâmetros são necessários.
+
+
+- **Use o arquivo `.env` e configure as Variáveis de Ambiente em Seu Projeto**
+- Instale as extensões ESLint e EditorConfig para o VS Code.
+- **Não instale a extensão Prettier.**
+- Uso de Node.js v16
+
+Adicione as seguintes configurações ao arquivo de configurações do VS Code:
+
+```json
 "[javascript]": {
-    "editor.defaultFormatter": null,
+    "editor.defaultFormatter": null
 },
 "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
@@ -22,71 +60,45 @@ A starter for React with Typescript with the blazing fast Vite, strong Vitest fr
 "eslint.validate": [
     "javascript",
     "javascriptreact"
-],
+]
 ```
 
-3. Clone the repo and run:
+## Instalação e Configuração
+Para configurar o projeto em seu ambiente local, siga estas etapas:
 
+Clone o repositório:
+```
+git clone <URL_DO_REPOSITORIO>
+```
+
+Copie o arquivo de exemplo .env e configure suas variáveis de ambiente:
 ```
 cp .env.example .env
 ```
+
+Instale as dependências:
 
 ```
 yarn
 ```
 
+Execute o projeto em modo de desenvolvimento:
+
 ```
 yarn dev
 ```
 
-## Test
+## Como Usar
+Após a instalação e configuração, você pode acessar o site localmente para explorar suas funcionalidades. O site permite que você navegue por uma lista de personagens e quadrinhos, e use a barra de pesquisa para encontrar informações específicas
 
+## Testes
+Para executar os testes, utilize o seguinte comando:
 ```
 yarn test
 ```
 
-## Troubleshooting
 
-### Error: Cannot find module 'node:path'
 
-Solution: Use Node.js v16
-
----
-
-### Error: Command failed: node /path/to/project/node_modules/esbuild/bin/esbuild --version dyld: Symbol not found: \_SecTrustEvaluateWithError
-
-Solution:
-
-- Stop using `npm` or `yarn` for this project
-- Install [pnpm](https://pnpm.io)
-- Remove `node_modules`
-- Remove `yarn.lock` (if exists)
-- Remove `package-lock.json` (if exists)
-- Add the following to `package.json`
-
-```
-"devDependencies":
-    "esbuild-wasm":"latest",
-},
-"pnpm":{
-    "overrides":{
-        "esbuild":"npm:esbuild-wasm@latest"
-    }
-},
-```
-
-Download the dependencies:
-
-```
-pnpm i
-```
-
-Run the project:
-
-```
-pnpm run dev
-```
 
 ## Credits
-
-This is a fork of [https://github.com/TheSwordBreaker/vite-reactts-eslint-prettier](https://github.com/TheSwordBreaker/vite-reactts-eslint-prettier)
+Este projeto foi feito a partir do template de: [https://github.com/fredsvanelli/vite-react-ts-eslint-prettier-editorconfig](https://github.com/fredsvanelli/vite-react-ts-eslint-prettier-editorconfig)
