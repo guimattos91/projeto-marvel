@@ -22,8 +22,7 @@ O principal objetivo deste projeto é fornecer uma plataforma onde os usuários 
 
 Para executar este projeto, você precisará ter os seguintes itens configurados:
 
-## API da Marvel:
-### Passo a Passo para Acessar a API da Marvel:
+### Acesse a API da Marvel com esse passo a passo:
 - Crie uma Conta na Marvel Developer
 - Acesse o site da Marvel Developer: [Marvel Developer](https://developer.marvel.com/)
 - Clique em "Sign Up" no canto superior direito.
